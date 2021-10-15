@@ -1,5 +1,5 @@
 <?php
-namespace Gurucomkz\RedocSS;
+namespace Gurucomkz\APIDoc;
 
 use SilverStripe\Forms\FormField;
 use SilverStripe\View\Requirements;

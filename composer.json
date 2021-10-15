@@ -1,0 +1,33 @@
+{
+    "name": "gurucomkz/silverstipe-apidocpage",
+    "description": "Lets you render OpenAPI/Swagger YAML",
+    "license": "BSD-3-Clause",
+    "type": "silverstripe-vendormodule",
+    "keywords": [
+        "silverstripe",
+        "swagger-js",
+        "redoc",
+        "yaml",
+        "page"
+    ],
+    "authors": [
+        {
+            "name": "Sergey Shevchenko",
+            "homepage": "http://github.com/gurucomkz"
+        }
+    ],
+    "require": {
+        "silverstripe/admin": "^1.6@dev"
+    },
+    "require-dev": {
+    },
+    "autoload": {
+        "psr-4": {
+            "Gurucomkz\\APIDoc\\": "src/"
+        }
+    },
+    "extra": {
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

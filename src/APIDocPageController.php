@@ -1,6 +1,6 @@
 <?php
 
-namespace Gurucomkz\RedocSS;
+namespace Gurucomkz\APIDoc;
 
 use PageController;
 use SilverStripe\Control\HTTPRequest;
@@ -16,8 +16,13 @@ class APIDocPageController extends PageController
     protected function init()
     {
         parent::init();
-        Requirements::css('https://fonts.googleapis.com/css?family=Montserrat:300,400,700|Roboto:300,400,700');
-        Requirements::javascript('https://cdn.jsdelivr.net/npm/redoc@latest/bundles/redoc.standalone.js');
+        if ($this->UIMode == 'Redoc') {
+            Requirements::css('https://fonts.googleapis.com/css?family=Montserrat:300,400,700|Roboto:300,400,700');
+            Requirements::javascript('https://cdn.jsdelivr.net/npm/redoc@latest/bundles/redoc.standalone.js');
+        } else {
+            Requirements::javascript('https://unpkg.com/swagger-ui-dist@3/swagger-ui-bundle.js');
+            Requirements::css('https://unpkg.com/swagger-ui-dist@3/swagger-ui.css');
+        }
     }
 
     public function specs(HTTPRequest $request)
