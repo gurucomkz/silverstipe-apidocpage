@@ -9,8 +9,17 @@ class APIDocPage extends Page
 {
     private static $table_name = 'APIDocPage';
 
+    private static $singular_name = 'API Doc Page';
+
+    private static $plural_name = 'API Doc Pages';
+
+    const UIMODE_SWAGGER = 'Swagger';
+    const UIMODE_REDOC = 'Redoc';
+
+    private static $description = 'Display a Rendered OpenApi YAML';
+
     private static $db = [
-        'UIMode' => 'Enum("Redoc,Swagger")',
+        'UIMode' => 'Enum("' . self::UIMODE_SWAGGER . ',' . self::UIMODE_REDOC . '")',
         'Content' => 'Text',
     ];
 
@@ -37,7 +46,6 @@ class APIDocPage extends Page
             )
             ->addExtraClass('stacked')
         );
-        $fields->removeByName('Metadata');
         return $fields;
     }
 }
