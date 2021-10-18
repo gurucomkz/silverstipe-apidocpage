@@ -3,6 +3,7 @@
 namespace Gurucomkz\APIDoc;
 
 use PageController;
+use SilverStripe\Control\Director;
 use SilverStripe\Control\HTTPRequest;
 use SilverStripe\Control\HTTPResponse;
 use SilverStripe\View\Requirements;
@@ -27,8 +28,10 @@ class APIDocPageController extends PageController
 
     public function specs(HTTPRequest $request)
     {
+        $content = $this->Content;
+        $content = str_replace('{SS_HOST}', Director::host($request), $content);
         return HTTPResponse::create()
-            ->setBody($this->Content)
+            ->setBody($content)
             ->addHeader('Content-Type', 'text/yaml');
     }
 }
